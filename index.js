@@ -1,13 +1,33 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const hashTable = {};
+
+  for (let i = 0; i < array.length; i++) {
+    const complement = target - array[i];
+
+    if (complement in hashTable) {
+      return true;
+    }
+
+    hashTable[array[i]] = i;
+  }
+
+  return false;
 }
 
-/* 
+/*
   Write the Big O time complexity of your function here
 */
 
-/* 
+/*
   Add your pseudocode here
+  // Create an empty hash table
+// For each element in the array:
+     a. Calculate the complement (target - element)
+     b. If the complement is in the hash table, return true
+     c. Add the element and its index to the hash table
+// Return false (if no two elements sum to the target)
+
 */
 
 /*
